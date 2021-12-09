@@ -18,7 +18,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12" id="app">
-                    <example-component></example-component>
+                    <Directory></Directory>
                 </div>
             </div>
         </div>
