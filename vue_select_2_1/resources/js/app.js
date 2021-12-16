@@ -8,6 +8,12 @@ require('./bootstrap');
 
 window.Vue = require('vue').default;
 
+// register global components
+import vSelect from 'vue-select'
+
+Vue.component('v-select', vSelect)
+import 'vue-select/dist/vue-select.css'; 
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
