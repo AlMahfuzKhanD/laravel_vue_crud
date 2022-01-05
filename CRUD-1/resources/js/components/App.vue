@@ -5,11 +5,13 @@
                 <div class="navbar-nav">
                     <router-link to="/" class="nav-item nav-link">Products List</router-link>
                     <router-link to="/create" class="nav-item nav-link">Create Product</router-link>
+                    <router-link to="/country" class="nav-item nav-link">Countries Vue</router-link>
+                    <router-link to="/country_bootstrap" class="nav-item nav-link">Countries Bootstrap</router-link>
                 </div>
             </div>
         </nav>
 
-        <router-view> </router-view>
+        <router-view data-app> </router-view>
     </div>
 </template>
  

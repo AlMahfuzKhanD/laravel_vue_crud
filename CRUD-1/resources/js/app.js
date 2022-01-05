@@ -12,6 +12,10 @@ import VueAxios from 'vue-axios';
 import VueRouter from 'vue-router';
 import axios from 'axios';
 import { routes } from './routes';
+// import vuetify from '../plugins/vuetify'
+import Vuetify from 'vuetify'
+import 'vuetify/dist/vuetify.min.css'
+import '@mdi/font/css/materialdesignicons.css'
 
 /**
  * The following block of code may be used to automatically register your
@@ -39,6 +43,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 Vue.use(VueRouter);
 Vue.use(VueAxios, axios);
+Vue.use(Vuetify)
  
 const router = new VueRouter({
     mode: 'history',
@@ -48,6 +53,7 @@ const router = new VueRouter({
 const app = new Vue({
     el: '#app',
     router: router,
+    vuetify: new Vuetify(),
     render: h => h(App),
 });
 
