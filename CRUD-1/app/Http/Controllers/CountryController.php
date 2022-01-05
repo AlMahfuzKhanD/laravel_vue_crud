@@ -80,8 +80,12 @@ class CountryController extends Controller
      * @param  \App\Models\Country  $country
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Country $country)
+    public function destroy($id)
     {
-        //
+        $countries = Country::findOrFail($id);
+        $countries->delete();
+
+        return response()->json('Product deleted!');
     }
+    
 }

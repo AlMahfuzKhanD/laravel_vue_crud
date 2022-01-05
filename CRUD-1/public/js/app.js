@@ -5362,9 +5362,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
+      search: "",
       headers: [{
         text: 'Id',
         align: 'start',
@@ -5373,9 +5397,12 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         text: 'Name',
         value: 'name'
+      }, {
+        text: 'Actions',
+        value: 'actions',
+        sortable: false
       }],
-      countries: [],
-      page: [5, 10, 'All']
+      countries: []
     };
   },
   created: function created() {
@@ -5385,14 +5412,18 @@ __webpack_require__.r(__webpack_exports__);
       _this.countries = response.data; // console.log('hi');
     });
   },
-  methods: {// deleteCountry(id) { 
-    //     this.axios
-    //         .delete(`http://localhost:8000/api/countries/${id}`)
-    //         .then(response => {
-    //             let i = this.country.map(data => data.id).indexOf(id);
-    //             this.country.splice(i, 1)
-    //         });
-    // }
+  methods: {
+    deleteCountry: function deleteCountry(item) {
+      var _this2 = this;
+
+      this.axios["delete"]('/api/countries/' + item.id).then(function (response) {
+        var i = _this2.countries.map(function (data) {
+          return countries.id;
+        }).indexOf(item);
+
+        _this2.countries.splice(i, 1);
+      });
+    }
   }
 });
 
@@ -29526,18 +29557,100 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "div",
+    "v-app",
     [
-      _c("h2", { staticClass: "text-center" }, [_vm._v("Country Vuetify")]),
-      _vm._v(" "),
-      _c("v-data-table", {
-        staticClass: "elevation-1",
-        attrs: {
-          headers: _vm.headers,
-          items: _vm.countries,
-          "items-per-page": 10,
-        },
-      }),
+      _c(
+        "v-main",
+        [
+          _c(
+            "v-container",
+            [
+              _c("h2", { staticClass: "text-center" }, [
+                _vm._v("Country Vuetify"),
+              ]),
+              _vm._v(" "),
+              _c(
+                "v-row",
+                [
+                  _c(
+                    "v-col",
+                    { attrs: { md: "3" } },
+                    [
+                      _c("v-text-field", {
+                        attrs: {
+                          "append-icon": "mdi-magnify",
+                          label: "Search",
+                          "single-line": "",
+                          "hide-details": "",
+                        },
+                        model: {
+                          value: _vm.search,
+                          callback: function ($$v) {
+                            _vm.search = $$v
+                          },
+                          expression: "search",
+                        },
+                      }),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "v-row",
+                [
+                  _c(
+                    "v-col",
+                    [
+                      _c("v-data-table", {
+                        staticClass: "elevation-1",
+                        attrs: {
+                          headers: _vm.headers,
+                          items: _vm.countries,
+                          "items-per-page": 5,
+                          search: _vm.search,
+                        },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "item.actions",
+                            fn: function (ref) {
+                              var item = ref.item
+                              return [
+                                _c(
+                                  "v-icon",
+                                  {
+                                    attrs: { small: "" },
+                                    on: {
+                                      click: function ($event) {
+                                        return _vm.deleteCountry(item)
+                                      },
+                                    },
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                    mdi-delete\n                                "
+                                    ),
+                                  ]
+                                ),
+                              ]
+                            },
+                          },
+                        ]),
+                      }),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
+            ],
+            1
+          ),
+        ],
+        1
+      ),
     ],
     1
   )
