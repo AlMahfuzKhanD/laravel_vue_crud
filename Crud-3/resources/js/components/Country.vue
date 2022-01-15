@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-12">
+            <div class="col">
                 <div class="card">
                     <div class="card-header">Example Component</div>
 
@@ -38,24 +38,10 @@
                             sortable: true,
                             searchable: true,
                             index: 0
-                        },
-                        {
-                            key: "registered_at",
-                            title: "Registered at",
-                            sortable: true,
-                            searchable: true,
-                            index: 0
-                        },
-                        {
-                            key: "last_access_at",
-                            title: "Last access at",
-                            sortable: true,
-                            searchable: true,
-                            index: 0
-                        },
+                        }
                     ],
                     data: this.country,
-                    allowedExports: ["xls", "csv"],
+                    allowedExports: ["xls", "csv"]
                 }
             }
         },
