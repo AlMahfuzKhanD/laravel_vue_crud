@@ -5385,18 +5385,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       search: "",
       headers: [{
         text: 'Id',
-        align: 'start',
+        align: 'center',
         sortable: false,
         value: 'id'
       }, {
         text: 'Name',
-        value: 'name'
+        value: 'name',
+        filterable: true
       }, {
         text: 'Actions',
         value: 'actions',
@@ -5418,7 +5420,7 @@ __webpack_require__.r(__webpack_exports__);
 
       this.axios["delete"]('/api/countries/' + item.id).then(function (response) {
         var i = _this2.countries.map(function (data) {
-          return countries.id;
+          return item;
         }).indexOf(item);
 
         _this2.countries.splice(i, 1);

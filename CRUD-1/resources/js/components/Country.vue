@@ -16,6 +16,7 @@
                             :items-per-page="5"
                             :search="search"
                             class="elevation-1"
+                            
                         >
                             <template v-slot:item.actions="{ item }">
 
@@ -45,12 +46,16 @@
                 headers: [
                     {
                         text: 'Id',
-                        align: 'start',
+                        align: 'center',
                         sortable: false,
                         value: 'id',
+
                     },
-                    { text: 'Name', value: 'name' },
+                    { text: 'Name', value: 'name',filterable: true },
                     { text: 'Actions', value: 'actions', sortable: false },
+                    
+                    
+                    
                 ],
                 countries: []
             }
@@ -68,7 +73,7 @@
                 this.axios
                     .delete('/api/countries/'+item.id)
                     .then(response => {
-                        let i = this.countries.map(data => countries.id).indexOf(item);
+                        let i = this.countries.map(data => item).indexOf(item);
                         this.countries.splice(i, 1)
                     });
             }

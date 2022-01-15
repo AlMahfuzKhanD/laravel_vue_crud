@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -26,4 +26,22 @@
 
         <script src="{{asset('js/app.js')}}"></script>
     </body>
-</html>
+</html> --}}
+@extends('layouts.app')
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+         
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Laravel Vue Js DataTable Example</div>
+                     
+                <div class="card-body">
+                  <datatable-component></datatable-component>
+                </div>
+                 
+            </div>
+        </div>
+    </div>
+</div>
+@endsection 
