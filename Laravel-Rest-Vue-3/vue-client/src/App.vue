@@ -7,7 +7,7 @@ const newProduct = ref({ name:'', price:''})
 
 const fetchProducts = async () => {
   const res = await axios.get('/products')
-  product.value = res.data
+  products.value = res.data
 }
 
 const createProduct = async () => {
@@ -16,7 +16,7 @@ const createProduct = async () => {
   fetchProducts()
 }
 
-const deleteProduct = async () => {
+const deleteProduct = async (id) => {
   await axios.delete(`/products/${id}`)
   fetchProducts()
 }
